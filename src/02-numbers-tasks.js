@@ -51,8 +51,8 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage() {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -112,8 +112,11 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors() {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const arg1 = x1 * x2 + y1 * y2;
+  const arg2 = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const arg3 = Math.sqrt(x2 ** 2 + y2 ** 2);
+  return Math.acos(arg1 / (arg2 * arg3));
 }
 
 /**
@@ -205,8 +208,12 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  const prime = Math.sqrt(n);
+  for (let i = 2; i <= prime; i += 1) {
+    if (n % i === 0) return false;
+  }
+  return n > 1;
 }
 
 /**
@@ -224,8 +231,8 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  return Number(value) || def;
 }
 
 module.exports = {
