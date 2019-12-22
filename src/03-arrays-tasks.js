@@ -55,11 +55,7 @@ function generateOdds(len) {
  *    [] => []
  */
 function doubleArray(arr) {
-  const result = arr;
-  arr.forEach((element) => {
-    result.push(element);
-  });
-  return result;
+  return [...arr, ...arr];
 }
 
 
@@ -75,13 +71,9 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  const result = [];
-  arr.forEach((element) => {
-    if (element > 0) {
-      result.push(element);
-    }
-  });
-  return result;
+  return arr
+    .filter((number) => number > 0)
+    .sort((a, b) => a - b);
 }
 
 /**
@@ -96,11 +88,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
 function getArrayOfStrings(arr) {
-  const result = [];
-  arr.forEach((item) => {
-    if (typeof (item) === 'string') result.push(item);
-  });
-  return result;
+  return arr.filter((el) => typeof el === 'string');
 }
 
 /**
@@ -252,14 +240,8 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(arr) {
-  const result = [];
-  let sum = 0;
-  arr.forEach((item) => {
-    sum += item;
-    result.push(sum);
-  });
-  return result;
+function getMovingSum() {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -274,11 +256,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  const result = [];
-  for (let i = 1; i < arr.length; i += 2) {
-    result.push(arr[i]);
-  }
-  return result;
+  return arr.filter((el, index) => index % 2);
 }
 
 
@@ -296,14 +274,8 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(arr) {
-  const result = [];
-  let counter = 1;
-  arr.forEach((item) => {
-    for (let i = 0; i < counter; i += 1) result.push(item);
-    counter += 1;
-  });
-  return result;
+function propagateItemsByPositionIndex() {
+  throw new Error('Not implemented');
 }
 
 
@@ -339,11 +311,8 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  let result = 0;
-  arr.forEach((item) => {
-    if (typeof (item) === 'number' && item > 0) result += 1;
-  });
-  return result;
+  return arr.filter((el) => (typeof el === 'number' ? el > 0 : 0))
+    .length;
 }
 
 /**
@@ -428,11 +397,7 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-  let counter = 0;
-  arr.forEach((element) => {
-    if (item === element) counter += 1;
-  });
-  return counter;
+  return arr.filter((el) => el === item).length;
 }
 
 /**
@@ -499,16 +464,8 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(n) {
-  const result = new Array(n);
-  for (let i = 0; i < n; i += 1) {
-    result[i] = new Array(n);
-    for (let j = 0; j < n; j += 1) {
-      if (j === i) result[i][j] = 1;
-      else result[i][j] = 0;
-    }
-  }
-  return result;
+function getIdentityMatrix() {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -524,10 +481,8 @@ function getIdentityMatrix(n) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(start, end) {
-  const result = [];
-  for (let i = start; i <= end; i += 1) result.push(i);
-  return result;
+function getIntervalArray() {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -594,14 +549,8 @@ function group() {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(arr, childrenSelector) {
-  let result1 = [];
-  let result = [];
-  result = arr.map((childrenSelector));
-  for (let i = 0; i < result.length; i += 1) {
-    result1 = result1.concat(result[i]);
-  }
-  return result1;
+function selectMany() {
+  throw new Error('Not implemented');
 }
 
 
