@@ -320,8 +320,26 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced() {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  const checking = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']];
+  const result = [];
+  if (str.length % 2 !== 0) {
+    return false;
+  }
+  for (let i = 0; i < str.length; i += 1) {
+    for (let j = 0; j < checking.length; j += 1) {
+      if (str[i] === checking[j][1] && result[result.length - 1] === checking[j][0]) {
+        result.pop();
+        break;
+      }
+      if (str[i] === checking[j][0]) {
+        result.push(str[i]);
+        break;
+      }
+    }
+  }
+  if (result.length === 0) return true;
+  return false;
 }
 
 
@@ -362,7 +380,7 @@ function toNaryString(num, n) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
+function getCommonDirectoryPath() {
   throw new Error('Not implemented');
 }
 
